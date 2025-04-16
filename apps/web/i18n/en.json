@@ -1,0 +1,37 @@
+{
+    "header": {
+        "title": "Starter"
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    },
+    "banner": {
+        "message": "Welcome to the site! This is an informational banner.",
+        "dismiss": "Close"
+    },
+    "nav": {
+        "items": {
+            "home": "Home",
+            "contact": "Contact",
+            "blog": "Blog"
+        }
+    },
+    "theme" : {
+        "dark": "Dark theme",
+        "light": "Light theme"
+    },
+    "home": {
+        "title": "Home",
+        "theme": "Current theme",
+        "cubeTitle": "Here's a nice Cube",
+        "coneTitle": "Here's a royal Cone" 
+    },
+    "contact": {
+        "title": "Contact",
+        "theme": "Current theme"
+    },
+    "blog": {
+        "title": "Blog",
+        "theme": "Current theme"
+    }
+}

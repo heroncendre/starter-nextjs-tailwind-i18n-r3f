@@ -1,0 +1,26 @@
+{
+	"name": "turbo-mono-next-strapi-r3f-tailwind-seo",
+	"private": true,
+	"packageManager": "pnpm@8.15.4",
+	"version": "0.1.0",
+	"license": "MIT",
+	"scripts": {
+		"dev:web": "turbo run dev --filter=web",
+		"dev:cms": "turbo run dev --filter=cms",
+		"build:web": "turbo run build --filter=web",
+		"build:cms": "turbo run build --filter=cms",
+		"lint": "turbo run lint",
+		"clean": "turbo run clean"
+	},
+	"devDependencies": {
+		"@types/node": "^22.14.1",
+		"@types/react": "^19.1.2",
+		"turbo": "^2.5.0",
+		"typescript": "^5.8.3",
+		"prettier": "^3.5.3",
+		"prettier-plugin-tailwindcss": "^0.6.11"
+	},
+	"engines": {
+		"node": ">=18"
+	}
+}

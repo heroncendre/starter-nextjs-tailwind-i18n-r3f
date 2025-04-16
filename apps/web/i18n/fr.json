@@ -1,0 +1,37 @@
+{
+    "header": {
+        "title": "Kit de démarrage"
+    },
+    "footer": {
+        "rights": "Tous droits réservés."
+    },
+    "banner": {
+        "message": "Bienvenue sur le site ! Ceci est une bannière informative.",
+        "dismiss": "Fermer"
+    },
+    "nav": {
+        "items": {
+            "home": "Accueil",
+            "contact": "Contact",
+            "blog": "Journal"
+        }
+    },
+    "theme" : {
+        "dark": "Thème sombre",
+        "light": "Thème clair"
+    },
+    "home": {
+        "title": "Accueil",
+        "theme": "Thème actuel",
+        "cubeTitle": "Un beau Cube",
+        "coneTitle": "Un Cone royal"
+    },
+    "contact": {
+        "title": "Contact",
+        "theme": "Thème actuel"
+    },
+    "blog": {
+        "title": "Blog",
+        "theme": "Thème actuel"
+    }
+}
