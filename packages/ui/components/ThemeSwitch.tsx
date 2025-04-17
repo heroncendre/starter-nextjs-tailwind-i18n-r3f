@@ -9,27 +9,20 @@ interface ThemeSwitchProps {
     label?: string
 }
 
-export const ThemeSwitch = ({ checked, onChange, label = 'Dark Mode' }: ThemeSwitchProps) => {
+export function ThemeSwitch({ checked, onChange, label = 'Dark mode' }: ThemeSwitchProps) {
     return (
-        <div className="flex items-center gap-3">
-            <label htmlFor="theme-switch" className="text-sm">
-                {label}
-            </label>
+        <div className="flex items-center gap-4 text-primary text-sm">
+            <label htmlFor="theme-switch">{label}</label>
             <Switch.Root
                 id="theme-switch"
                 className={clsx(
-                    'w-10 h-6 rounded-full relative',
-                    'bg-gray-300 data-[state=checked]:bg-black transition'
+                    'w-10 h-6 rounded-full relative transition',
+                    'bg-secondary/40 data-[state=checked]:bg-primary'
                 )}
                 checked={checked}
                 onCheckedChange={onChange}
             >
-                <Switch.Thumb
-                    className={clsx(
-                        'block w-4 h-4 bg-white rounded-full transition-transform',
-                        'translate-x-1 data-[state=checked]:translate-x-5'
-                    )}
-                />
+                <Switch.Thumb className="block w-4 h-4 bg-white rounded-full transition-transform translate-x-1 data-[state=checked]:translate-x-5" />
             </Switch.Root>
         </div>
     )

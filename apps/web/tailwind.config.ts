@@ -1,4 +1,8 @@
-module.exports = {
+import type { Config } from 'tailwindcss'
+import {config as baseConfig} from '../../packages/ui/tailwind.config'
+
+const config: Config = {
+    ...baseConfig,
     content: [
         '../../packages/ui/components/**/*.{js,ts,jsx,tsx}',
         '../../packages/ui/*.{js,ts,jsx,tsx}',
@@ -7,9 +11,8 @@ module.exports = {
         './components/**/*.{js,ts,jsx,tsx}',
         './pages/**/*.{js,ts,jsx,tsx}',
         './app/**/*.{js,ts,jsx,tsx}'
-    ],
-    theme: {
-        extend: {}
-    },
-    plugins: []
+    ]
 }
+
+export default config
+

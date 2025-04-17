@@ -18,7 +18,7 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "tailwind.config.js",
+        "tailwind.config.ts",
         "../../packages/ui/components/ThemeSwitch.tsx",
         "../../packages/lib/hooks/useHydrated.ts"
     ],
