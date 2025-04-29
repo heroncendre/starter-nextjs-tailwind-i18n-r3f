@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_article_content_photo_galleries",
+  "info": {
+    "displayName": "PhotoGallery",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "layout": {
+      "type": "string",
+      "default": "1"
+    }
+  }
+}

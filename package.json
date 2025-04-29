@@ -6,9 +6,12 @@
 	"license": "MIT",
 	"scripts": {
 		"dev:web": "turbo run dev --filter=web",
-		"dev:cms": "turbo run dev --filter=cms",
 		"build:web": "turbo run build --filter=web",
+
+		"dev:cms": "turbo run dev --filter=cms",
 		"build:cms": "turbo run build --filter=cms",
+		"start:cms": "turbo run start --filter=cms",
+		
 		"lint": "turbo run lint",
 		"clean": "turbo run clean"
 	},

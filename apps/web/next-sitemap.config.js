@@ -1,75 +1,45 @@
 /** @type {import('next-sitemap').IConfig} */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
 module.exports = {
-    siteUrl: process.env.SITE_URL || 'https://example.com',
+    siteUrl: SITE_URL,
     generateRobotsTxt: true,
+    generateIndexSitemap: true,
     changefreq: 'weekly',
-    priority: 0.7,
     pretty: true,
     exclude: ['/404'],
+    priority: 0.7,
     sitemapSize: 5000,
     alternateRefs: [
         {
-            href: 'https://www.example.com/fr',
+            href: `${SITE_URL}/fr`,
             hreflang: 'fr'
         },
         {
-            href: 'https://www.example.com/en',
+            href: `${SITE_URL}/en`,
             hreflang: 'en'
         }
     ],
     transform: async (config, path) => {
-        // par défaut, path = /contact, /blog, / etc.
-        const defaultLocale = 'fr'
-        const otherLocales = ['en']
+        // Ignore les assets statiques
+        if (path.includes('.')) return null
 
         const baseEntry = {
             loc: `${config.siteUrl}${path}`,
             changefreq: config.changefreq,
             priority: config.priority,
-            lastmod: new Date().toISOString(),
-            alternateRefs: [
-                {
-                    href: `${config.siteUrl}/fr${path}`,
-                    hreflang: 'fr'
-                },
-                {
-                    href: `${config.siteUrl}/en${path}`,
-                    hreflang: 'en'
-                }
-            ]
+            lastmod: new Date().toISOString()
         }
 
-        if (path === '/blog') {
-            const fetchArticlesFromStrapi = async () => {
-                if (process.env.NODE_ENV !== 'production') {
-                    console.warn('⚠️  [sitemap] Données mockées utilisées pour les articles. Remplacer fetchArticlesFromStrapi() avant mise en prod.')
-                }
-                
-                return [
-                    { slug: 'first-article', updatedAt: '2024-04-10T12:00:00.000Z' },
-                    { slug: 'second-article', updatedAt: '2024-04-13T09:30:00.000Z' }    
-                ]
-            }
-
-            const articles = await fetchArticlesFromStrapi()
-            return articles.flatMap((article) => {
-                return [
-                    {
-                        loc: `${config.siteUrl}/fr/blog/${article.slug}`,
-                        lastmod: article.updatedAt,
-                        changefreq: 'monthly',
-                        priority: 0.6
-                    },
-                    {
-                        loc: `${config.siteUrl}/en/blog/${article.slug}`,
-                        lastmod: article.updatedAt,
-                        changefreq: 'monthly',
-                        priority: 0.6
-                    }
-                ]
-            })
-        }    
-
         return baseEntry
+    },
+    additionalPaths: async (config) => {
+        const { fetchArticlesForSitemap } = require('./scripts/fetch-articles-sitemap')
+        const articles = await fetchArticlesForSitemap()
+
+        return articles.flatMap(({ lang, slug, lastmod }) => ({
+            loc: `${SITE_URL}/${lang}/blog/${slug}`,
+            lastmod
+        }))
     }
 }

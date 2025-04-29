@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_article_content_photo_carousels",
+  "info": {
+    "displayName": "PhotoCarousel",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "delay": {
+      "type": "decimal",
+      "default": 4
+    },
+    "loop": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoPlay": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_article_content_video_blocks",
+  "info": {
+    "displayName": "VideoBlock",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "type": "customField",
+      "customField": "plugin::oembed.oembed"
+    }
+  }
+}
