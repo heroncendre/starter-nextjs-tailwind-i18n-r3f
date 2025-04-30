@@ -5,6 +5,7 @@ import Autoplay from 'embla-carousel-autoplay'
 
 import { PhotoCarouselProps } from '.'
 import { useRef } from 'react'
+import { Photo } from './Photo'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:1337'
 
@@ -34,8 +35,7 @@ export function PhotoCarousel({ photos, title, delay, loop, autoPlay }: PhotoCar
                         <div className="flex-[0_0_100%] relative" key={index}>
                             <img
                                 src={`${SITE_URL}${photo.url}`}
-                                alt={photo.alternativeText || `Photo ${index + 1}`}
-                                className="w-full h-full object-cover"
+                                alt={photo.alternativeText || ''}
                             />
                         </div>
                     ))}

@@ -57,9 +57,10 @@ export async function fetchArticleBySlug(slug: string, locale: string = 'fr'): P
         &populate[content][on][article-content.video-block][populate]=*
         &populate[content][on][article-content.photo-gallery][populate][0]=photos
         &populate[content][on][article-content.photo-carousel][populate][0]=photos
+        &populate[cover][fields][0]=url
+        &populate[cover][fields][1]=alternativeText
         `.replace(/\s/g, '')
 
     const data = await fetcher<Article[]>(url)
-    // console.log(data)
     return data.length > 0 ? data[0] : null
 }

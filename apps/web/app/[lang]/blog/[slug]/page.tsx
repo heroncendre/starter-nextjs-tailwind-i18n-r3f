@@ -89,14 +89,15 @@ export default async function ArticlePage({ params }: { params: { lang: 'fr' | '
     const { lang, slug } = await params
     const article = await fetchArticleBySlug(slug, lang)
 
-    // console.log('Article:', article)
+    console.log('Article:', article)
 
     if (!article) {
         notFound()
     }
 
     return (
-        <div className="p-8 space-y-4 w-4/12 flex flex-row items-center justify-center mx-auto">
+        
+        <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-col items-center justify-between mb-4">
 
                 <h1 className="text-3xl font-bold">{article.title}</h1>
@@ -105,12 +106,12 @@ export default async function ArticlePage({ params }: { params: { lang: 'fr' | '
                     <img
                         src={`${SITE_URL}${article.cover.url}`}
                         alt={article.cover.alternativeText || article.title}
-                        className="rounded-lg shadow-md mt-4"
+                        className="rounded-lg shadow-md mt-4 w-full px-4"
                     />
                 )}
 
                 {article.content && (
-                    <div className="prose prose-lg max-w-none mt-8 flex flex-col items-center justify-center gap-8">
+                    <div className="w-full prose prose-lg mt-8 flex flex-col items-center justify-center gap-8">
                         {article.content.map((block, index) => {
                                 switch ((block as unknown as ArticleContentBlock).__component) {
 
@@ -123,7 +124,7 @@ export default async function ArticlePage({ params }: { params: { lang: 'fr' | '
                                             return <div key={index} className='w-full flex flex-col items-center justify-center'>
                                                         <iframe
                                                             src={`https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&autoplay=0&height=720`}
-                                                            className="w-[720px] h-[480px]"
+                                                            className="w-[400px] h-[300px] md:w-[720px] md:h-[480px]" 
                                                             allow="fullscreen; picture-in-picture"
                                                             allowFullScreen
                                                             title="L'atelier dans les nuages"

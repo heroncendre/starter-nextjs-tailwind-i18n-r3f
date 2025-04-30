@@ -1,16 +1,16 @@
-'use client'
+import { Metadata } from 'next'
+import { ContactForm } from '../../../components/ContactForm'
 
-import { useGlobalStore } from '../../../store/useGlobalStore'
-import { useTranslationKey } from 'hooks/useTranslationKey'
+export const metadata: Metadata = {
+    title: 'Contact',
+    description: 'Envoyez-nous un message.'
+}
 
 export default function ContactPage() {
-    const theme = useGlobalStore((s) => s.theme)
-    const t = useTranslationKey()
-    
     return (
-        <main className="p-8">
-        <h1 className="text-2xl font-bold">Contact</h1>
-        <p className="mt-2">{t('blog.theme')} : {theme}</p>
-        </main>
+        <div className="w-full md:max-w-2xl mx-auto px-4 py-12 flex flex-col items-center">
+            <h1 className="text-3xl font-bold mb-4">Contact</h1>
+            <ContactForm />
+        </div>
     )
 }
